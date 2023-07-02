@@ -1,0 +1,133 @@
+<div class="container-fluid">
+    <div class="row" style="background: gray; color:white;">
+        <div class="col-sm-2 col-md-2 p-2">
+            <h2 style="font-size: 29px;" class="mt-2">Add/Update Data</h2>
+        </div>
+        <div class="offset-sm-7 col-sm-3 offset-md-7 col-md-3">
+            <div class="tablesearch d-flex justify-content-end align-items-center p-2">
+                <button class="btn  btn-light m-1"><i class="fa fa-arrows-alt" aria-hidden="true"></i></button>
+                <button class="btn btn-light m-1" routerLink="/"><i class="fa fa-list" aria-hidden="true"></i></button>
+                <button class="btn  btn-light m-1"><i class="fa fa-times" aria-hidden="true"></i></button>
+
+            </div>
+        </div>
+    </div>
+    <div class="row p-4">
+        <form class="" [formGroup]="saveform" (ngSubmit)="Save()">
+            <div class="row p-2">
+                <div class="col-sm-4 ">
+                    <label>GST No</label>
+                    <input class="form-control" type="text" formControlName="gst" placeholder="Enter GST No"/>
+                </div>
+                <div class="col-sm-4">
+                    <label>PAN No</label>
+                    <input class="form-control" type="text" formControlName="pan" placeholder="Enter PAN No"/>
+                </div>
+                <div class="col-sm-4">
+                    <label>Code</label>
+                    <input class="form-control" type="text" formControlName="code" placeholder="Enter Code"/>
+                </div>
+            </div>
+
+            <div class="row p-2">
+                <div class="col-sm-4 ">
+                    <label>Name</label>
+                    <input class="form-control" type="text" formControlName="name" placeholder="Enter Name"/>
+                </div>
+                <div class="col-sm-4">
+                    <label>Address</label>
+                    <input class="form-control" type="text" formControlName="address" placeholder="Enter Address"/>
+                </div>
+                <div class="col-sm-4">
+                    <label>Pincode</label>
+                    <input class="form-control" type="text" formControlName="pincode" placeholder="Enter Pincode"/>
+                </div>
+            </div>
+
+            <div class="row p-2">
+                <div class="col-sm-4 ">
+                    <label>Country</label>
+                    <input class="form-control" type="text" formControlName="country" placeholder="Enter Country"/>
+                </div>
+                <div class="col-sm-4">
+                    <label>State</label>
+                    <input class="form-control" type="text" formControlName="state" placeholder="Enter State"/>
+                </div>
+                <div class="col-sm-4">
+                    <label>City</label>
+                    <input class="form-control" type="text" formControlName="city" placeholder="Enter City"/>
+                </div>
+            </div>
+
+            <div class="row p-2">
+                <div class="col-sm-4 ">
+                    <label>Mobile</label>
+                    <input class="form-control" type="text" formControlName="mobile" placeholder="Enter Mobile"/>
+                </div>
+                <div class="col-sm-4">
+                    <label>Email</label>
+                    <input class="form-control" type="email" formControlName="email" placeholder="Enter Email"/>
+                </div>
+                <div class="col-sm-4">
+                    <label>Latitude</label>
+                    <input class="form-control" type="text" formControlName="latitude" placeholder="Enter Latitude"/>
+                </div>
+            </div>
+
+            <div class="row p-2">
+                <div class="col-sm-4 ">
+                    <label>Longitude</label>
+                    <input class="form-control" type="text" formControlName="longitude" placeholder="Enter Longitude"/>
+                </div>
+            </div>
+
+            <div class="row" >
+                <div class="col-sm-4 p-2" style="background: gray; color:white;">
+                    <i class="fa fa-paperclip pr-3" style="font-size: 20px;" aria-hidden="true"></i><span style="font-size: 20px;"> Attachment</span>
+                </div>
+            </div>
+
+            <div class="row p-2">
+                <div class="col-sm-12 d-flex">
+                    <div class="offset-sm-5 col-sm-5 ">
+                        <p  style="font-weight: 600; font-size: 18px;;"> ..:: Contact Person Details ::.. </p>
+                    </div>
+                    <div class="col-sm-2">
+                        <button type="button" class="btn btn-primary" (click)="addPerson()">Add Person</button>
+                    </div>
+                </div>
+                <div formArrayName="ContactPersonDetails">
+                    <div *ngFor="let Cpd of persons.controls let i = index" [formGroupName]="i" class="row m-1 p-2" style="border:1px solid black;">
+                        <div class="col-sm-12">
+                            <p class="p-2" style="font-weight: 600;">Contact Person Details {{i+1}}</p>
+                        </div>
+                        <div class="col-sm-4 ">
+                            <label>Name</label>
+                            <input class="form-control" type="text" formControlName="PersonName" placeholder="Name"/>
+                        </div>
+                        <div class="col-sm-4">
+                            <label>Mobile</label>
+                            <input class="form-control" type="text" formControlName="PersonMobile" placeholder="Mobile"/>
+                        </div>
+                        <div class="col-sm-4">
+                            <label>Email</label>
+                            <input class="form-control" type="text" formControlName="PersonEmail" placeholder="Email"/>
+                        </div>
+                        <div class="col-sm-4">
+                            <label>Department</label>
+                            <input class="form-control" type="text" formControlName="Department" placeholder="Department"/>
+                        </div>
+                        <div class="col-sm-4">
+                            <label>Designation</label>
+                            <input class="form-control" type="text" formControlName="Designation" placeholder="Designation"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="from-group">
+                <button type="submit" class="btn btn-primary">SAVE</button>
+            </div>
+        </form>
+    </div>
+</div>
